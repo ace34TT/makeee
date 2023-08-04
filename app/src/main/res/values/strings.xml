@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">makeee</string>
+
+    <string name="lgn_email">Email : </string>
+    <string name="lgn_password">Password :</string>
+    <string name="lgn_btn_sign_in">Sign-in</string>
+    <string name="lgn_btn_sign_up"><u>Sign-up</u></string>
 </resources>
