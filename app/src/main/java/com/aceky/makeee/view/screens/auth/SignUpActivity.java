@@ -1,16 +1,19 @@
-package com.aceky.makeee;
+package com.aceky.makeee.view.screens.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.aceky.makeee.R;
 import com.aceky.makeee.databinding.ActivityLoginBinding;
 import com.aceky.makeee.databinding.ActivitySignUpBinding;
 
 public class SignUpActivity extends AppCompatActivity {
-    ActivitySignUpBinding binding ;
+    ActivitySignUpBinding binding;
+    private AuthViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +23,14 @@ public class SignUpActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        binding.btnSignIn.setOnClickListener(new View.OnClickListener() {
+        viewModel = new ViewModelProvider(this).get(AuthViewModel.class);
+        binding.btnSignUpSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewModel.onSignUpButtonClick(binding.editTextTextEmailAddress.getText().toString(), binding.editTextTextPassword.getText().toString(), "confirm");
+            }
+        });
+        binding.btnGoBackSingIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Finish the current activity
