@@ -1,10 +1,10 @@
-package com.aceky.makeee.model;
+package com.aceky.makeee.model.destination;
 
-public class TouristDestination {
+public class Province {
     String name ;
     String description ;
 
-    public TouristDestination(String name, String description) {
+    public Province(String name, String description) {
         this.name = name;
         this.description = description;
     }
