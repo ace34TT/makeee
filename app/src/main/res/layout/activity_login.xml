@@ -28,7 +28,6 @@
         android:layout_marginTop="44dp"
         android:contentDescription="@string/logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heading_image"
         app:srcCompat="@drawable/logo" />
@@ -90,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/btn_sign_up_submit"
+        android:id="@+id/btn_sign_in_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -105,24 +104,26 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="40dp"
         android:text="@string/are_you_new_here"
         android:textColor="@color/secondary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sign_up_submit" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_sign_in_submit" />
 
     <TextView
         android:id="@+id/btn_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="76dp"
         android:shadowColor="@color/black"
         android:text="@string/lgn_btn_sign_up"
         android:textColor="@color/secondary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sign_up_submit" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sign_in_submit" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -5,27 +5,26 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.aceky.makeee.R;
 import com.aceky.makeee.databinding.ActivityLoginBinding;
-import com.aceky.makeee.databinding.ActivitySignUpBinding;
-import com.aceky.makeee.view.screens.MainActivity;
+import com.aceky.makeee.model.user.SignedInUser;
+import com.aceky.makeee.util.ApiResponseCallback;
+import com.aceky.makeee.view.screens.destination.DestinationActivity;
+import com.aceky.makeee.view.screens.mainscreen.MainScreenActivity;
+
 
 public class LoginActivity extends AppCompatActivity {
-    private AuthViewModel viewModel;
-    private ActivityLoginBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        viewModel = new ViewModelProvider(this).get(AuthViewModel.class);
-
-        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        com.aceky.makeee.databinding.ActivityLoginBinding binding = ActivityLoginBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
+        SignInViewModel viewModel = new ViewModelProvider(this).get(SignInViewModel.class);
         binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,6 +33,22 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        binding.btnSignInSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewModel.onSignInButtonClick(binding.editTextTextEmailAddress.getText().toString(), binding.editTextTextPassword.getText().toString(), new ApiResponseCallback<SignedInUser>() {
+                    @Override
+                    public void onSuccess(SignedInUser response) {
+                        Log.d("login" , "success from view");
+                        Intent intent=new Intent(LoginActivity.this, MainScreenActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    @Override
+                    public void onError(String errorMessage) {
+                    }
+                });
+            }
+        });
     }
 }
