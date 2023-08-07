@@ -1,9 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Makeee" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
+
+    <style name="CONTENT">
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="ELEMENT">
+        <item name="android:background">#039BE5</item>
+    </style>
+    <style name="ACTION_BAR">
+        <item name="android:background">#039BE5</item>
+
+    </style>
+
 
     <style name="Theme.Makeee" parent="Base.Theme.Makeee" />
 
