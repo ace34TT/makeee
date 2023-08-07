@@ -37,4 +37,6 @@
     <string name="title_preferences">Preferences</string>
     <string name="title_search">Search</string>
     <string name="title_explore">Explore</string>
+    <string name="switch_theme">Switch theme</string>
+    <string name="name">Name</string>
 </resources>

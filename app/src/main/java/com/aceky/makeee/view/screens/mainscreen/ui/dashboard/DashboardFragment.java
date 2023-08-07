@@ -1,5 +1,6 @@
 package com.aceky.makeee.view.screens.mainscreen.ui.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.aceky.makeee.databinding.FragmentDashboardBinding;
+import com.aceky.makeee.view.screens.auth.LoginActivity;
+import com.aceky.makeee.view.screens.auth.SignUpActivity;
 
 public class DashboardFragment extends Fragment {
 
@@ -23,9 +26,14 @@ public class DashboardFragment extends Fragment {
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        binding.searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+            }
+        });
+/*        final TextView textView = binding.textDashboard;
+        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);*/
         return root;
     }
 
