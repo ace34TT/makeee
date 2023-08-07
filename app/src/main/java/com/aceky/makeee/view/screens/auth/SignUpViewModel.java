@@ -20,25 +20,13 @@ public class SignUpViewModel extends ViewModel {
         return showError;
     }
 
-    public void onSignUpButtonClick(String email, String password, String confirmPassword) {
+    public void onSignUpButtonClick(String email, String password, String confirmPassword ,ApiResponseCallback<SignedInUser> callback) {
         if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             return;
         }
         if (password.equals(confirmPassword)) {
             return;
         }
-        repository.handleSignUp(email, password, new ApiResponseCallback<SignedInUser>() {
-            @Override
-            public void onSuccess(SignedInUser response) {
-                // Handle successful sign up
-                showError.setValue(false);
-                Log.d("sign-in" , "sign in success from view model ");
-            }
-            @Override
-            public void onError(String errorMessage) {
-                // Handle sign up error
-                showError.setValue(true);
-            }
-        });
+        repository.handleSignUp(email, password, callback);
     }
 }

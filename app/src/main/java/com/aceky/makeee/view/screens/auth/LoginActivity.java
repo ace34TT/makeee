@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.aceky.makeee.R;
 import com.aceky.makeee.databinding.ActivityLoginBinding;
@@ -25,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         SignInViewModel viewModel = new ViewModelProvider(this).get(SignInViewModel.class);
+
         binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnSignInSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                binding.btnSignInSubmit.setText("Loading....");
+
                 viewModel.onSignInButtonClick(binding.editTextTextEmailAddress.getText().toString(), binding.editTextTextPassword.getText().toString(), new ApiResponseCallback<SignedInUser>() {
                     @Override
                     public void onSuccess(SignedInUser response) {
@@ -46,6 +50,11 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     @Override
                     public void onError(String errorMessage) {
+                        CharSequence text = "Wrong credentials";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(view.getContext() /* MyActivity */, text, duration);
+                        toast.show();
+                        binding.btnSignInSubmit.setText("Sign-in");
                     }
                 });
             }

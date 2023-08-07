@@ -9,7 +9,7 @@ public class ApiClient {
     public static Retrofit getClient() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://21b7-197-158-81-251.ngrok-free.app/api/")
+                    .baseUrl("https://makeee.onrender.com/api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
