@@ -49,10 +49,10 @@ public class ProvinceDetailsFragment extends Fragment {
             repository.handleFindProvince(itemName, new ApiResponseCallback<Province>() {
                 @Override
                 public void onSuccess(Province response) {
-                    province = new Province(response.getName(), response.getDescription());
+                    province = response;
                     binding.provinceDescription.setText(province.getDescription());
                     Glide.with(requireActivity())
-                            .load("https://picsum.photos/200")
+                            .load(response.getUrl())
                             .into(binding.provincePreview);
                 }
                 @Override

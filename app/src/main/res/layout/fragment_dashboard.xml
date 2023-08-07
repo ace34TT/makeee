@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/searchFieldBtn"
+            android:id="@+id/searchField"
             android:layout_width="324dp"
             android:layout_height="50dp"
             android:layout_gravity="center_vertical"
@@ -41,6 +41,7 @@
     </LinearLayout>
 
     <ListView
+        android:id="@+id/searchResult"
         android:layout_width="412dp"
         android:layout_height="671dp"
         app:layout_constraintBottom_toBottomOf="parent"
