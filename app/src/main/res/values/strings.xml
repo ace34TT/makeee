@@ -39,4 +39,6 @@
     <string name="title_explore">Explore</string>
     <string name="switch_theme">Switch theme</string>
     <string name="name">Name</string>
+    <string name="province_desctiption">Province desctiption</string>
+    <string name="province_title">Province title</string>
 </resources>
